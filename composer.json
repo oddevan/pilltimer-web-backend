@@ -1,0 +1,27 @@
+{
+  "name": "oddevan/pilltimer",
+  "description": "Backend for the web version of PillTimer",
+  "type": "project",
+  "require": {
+    "cavatappi/foundation": "^0.1.0"
+  },
+  "license": "AGPL-3.0",
+  "autoload": {
+    "psr-4": {
+      "oddEvan\\PillTimer\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Evan Hildreth",
+      "email": "me@eph.me"
+    }
+  ],
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^4.0"
+  },
+  "scripts": {
+    "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "lintfix": "./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+  }
+}
