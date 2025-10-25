@@ -9,7 +9,8 @@ use DateTimeInterface;
 use oddEvan\PillTimer\Entities\Dose;
 use Ramsey\Uuid\Rfc4122\UuidInterface;
 
-class DoseAdded implements DomainEvent {
+class DoseAdded implements DomainEvent, ChangesNextDoseTime
+{
 	public readonly UuidInterface $id;
 	public readonly DateTimeInterface $timestamp;
 
@@ -27,4 +28,9 @@ class DoseAdded implements DomainEvent {
 	public string $type { get => self::class; }
 	public UuidInterface $entityId { get => $this->dose->id; }
 	public UuidInterface $aggregateId { get => $this->dose->medicineId; }
+
+	public function doseTime(): ?DateTimeInterface
+	{
+		return $this->dose->timestamp;
+	}
 }

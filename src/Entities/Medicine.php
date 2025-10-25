@@ -8,6 +8,7 @@ use Cavatappi\Foundation\Factories\UuidFactory;
 use Cavatappi\Foundation\Validation\Validated;
 use Cavatappi\Foundation\Value;
 use Cavatappi\Foundation\Value\ValueKit;
+use DateTimeInterface;
 use Ramsey\Uuid\UuidInterface;
 
 readonly class Medicine implements Value, Entity, Validated {
@@ -23,6 +24,7 @@ readonly class Medicine implements Value, Entity, Validated {
 		public ?int $dailyLimit = null,
 		public bool $alert = false,
 		public bool $archived = false,
+		public ?DateTimeInterface $nextDose = null,
 	) {
 		$this->id = $id ?? UuidFactory::random();
 		$this->validate();
