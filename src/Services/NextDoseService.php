@@ -27,6 +27,9 @@ class NextDoseService implements EventListenerService {
 
 		$medicine = $this->medicineRepo->get($event->aggregateId);
 		$doses = $this->doseRepo->dosesForMedicineInLastDay($event->aggregateId);
+		if (isset($event->dose) && !array_any($doses, fn($dose) => $dose->id->equals($event->dose->id))) {
+			$doses[] = $event->dose;
+		}
 		usort($doses, fn($doseA, $doseB) => $doseA->timestamp->getTimestamp() - $doseB->timestamp->getTimestamp());
 
 		if (empty($doses)) {

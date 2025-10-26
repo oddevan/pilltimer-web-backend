@@ -11,6 +11,11 @@
       "oddEvan\\PillTimer\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "oddEvan\\PillTimer\\Test\\": "test-utils/"
+    }
+  },
   "authors": [
     {
       "name": "Evan Hildreth",
@@ -18,10 +23,12 @@
     }
   ],
   "require-dev": {
-    "squizlabs/php_codesniffer": "^4.0"
+    "squizlabs/php_codesniffer": "^4.0",
+    "cavatappi/testing": "^0.1.0"
   },
   "scripts": {
     "lint": "./vendor/squizlabs/php_codesniffer/bin/phpcs",
-    "lintfix": "./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+    "lintfix": "./vendor/squizlabs/php_codesniffer/bin/phpcbf",
+    "test": "phpunit --testsuite unit --no-coverage"
   }
 }

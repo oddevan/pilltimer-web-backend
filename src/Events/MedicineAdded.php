@@ -4,12 +4,15 @@ namespace oddEvan\PillTimer\Events;
 
 use Cavatappi\Foundation\DomainEvent\DomainEvent;
 use Cavatappi\Foundation\Factories\UuidFactory;
+use Cavatappi\Foundation\Value\ValueKit;
 use DateTimeImmutable;
 use DateTimeInterface;
 use oddEvan\PillTimer\Entities\Medicine;
 use Ramsey\Uuid\UuidInterface;
 
 class MedicineAdded implements DomainEvent {
+	use ValueKit;
+
 	public readonly UuidInterface $id;
 	public readonly DateTimeInterface $timestamp;
 

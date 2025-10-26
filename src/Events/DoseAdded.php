@@ -4,13 +4,16 @@ namespace oddEvan\PillTimer\Events;
 
 use Cavatappi\Foundation\DomainEvent\DomainEvent;
 use Cavatappi\Foundation\Factories\UuidFactory;
+use Cavatappi\Foundation\Value\ValueKit;
 use DateTimeImmutable;
 use DateTimeInterface;
 use oddEvan\PillTimer\Entities\Dose;
-use Ramsey\Uuid\Rfc4122\UuidInterface;
+use Ramsey\Uuid\UuidInterface;
 
 class DoseAdded implements DomainEvent, ChangesNextDoseTime
 {
+	use ValueKit;
+
 	public readonly UuidInterface $id;
 	public readonly DateTimeInterface $timestamp;
 
